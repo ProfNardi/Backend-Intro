@@ -19,13 +19,13 @@ Useremo il Server-Side Rendering (SSR) per generare l'HTML direttamente sul serv
 - **Autenticazione**: Sessioni server-side e hashing delle password con `bcrypt`.
 
 ## Roadmap delle route
-- **GET /**: home pubblica con stato di login.
-- **GET /login**: form di accesso.
-- **POST /login**: autenticazione contro la tabella `users`.
-- **GET /register**: form di registrazione.
-- **POST /register**: creazione utente con password hashata.
-- **GET /private**: area protetta (solo autenticati).
-- **GET /logout**: terminazione sessione.
+- **GET /**: home pubblica con link per la pagina di login.
+- **GET /login**: pagina form di accesso.
+- **POST /login**: inoltro dati di autenticazione da comparare con la tabella `users`.
+- **GET /register**: pagina form di registrazione.
+- **POST /register**: inoltro dati utente per registrazione con password hashata.
+- **GET /private**: pagina protetta (solo se autenticati).
+- **GET /logout**: pulsante chiudi sessione.
 - **404 (fallback)**: pagina non trovata con link alla home.
 
 ## Diagramma di flusso (SSR)
