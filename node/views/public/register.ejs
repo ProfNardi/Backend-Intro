@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <title>Registrazione</title>
+  </head>
+  <body>
+    <h1>Registrazione</h1>
+    <% if (error) { %>
+      <p><%= error %></p>
+    <% } %>
+    <form action="/register" method="post">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required>
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" required>
+      <label for="password_confirm">Conferma password</label>
+      <input id="password_confirm" name="password_confirm" type="password" required>
+      <button type="submit">registrati</button>
+    </form>
+    <p><a href="/login">torna al login</a></p>
+  </body>
+</html>

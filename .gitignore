@@ -1,0 +1,3 @@
+.venv
+node/node_modules/
+database/backend_intro.sqlite3
