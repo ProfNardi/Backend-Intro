@@ -51,7 +51,7 @@ Ogni password viene memorizzata come hash `bcrypt`; nessun hash deve essere calc
 Copri gli ambienti con `database/.env` (uno solo, condiviso). Il file esistente include gia chiavi placeholder:
 
 ```
-SQLITE_PATH="backend_intro.sqlite3"
+SQLITE_PATH="DATABASE.sqlite3"
 SECRET_KEY="una_stringa_molto_lunga_e_casuale"
 ```
 
