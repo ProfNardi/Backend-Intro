@@ -1,12 +1,14 @@
+Lingua: [Italiano](README.it.md) | [English](README.md)
+
 # Backend Intro: Flask vs Express
 
-Questa lezione mette a confronto due implementazioni simmetriche di un servizio backend. L'obiettivo è dimostrare che, nonostante le differenze di linguaggio tra i framework, i pattern logici (Routing, SSR, Auth, Database) rimangono costanti.
+Questa lezione mette a confronto due implementazioni simmetriche di un servizio backend. L'obiettivo e dimostrare che, nonostante le differenze di linguaggio tra i framework, i pattern logici (Routing, SSR, Auth, Database) rimangono costanti.
 
 Useremo il Server-Side Rendering (SSR) per generare l'HTML direttamente sul server, una tecnica fondamentale per capire come i dati si trasformano in interfaccia.
 
-- **[Express (Node.js)](https://expressjs.com/)**: È il pilastro degli stack moderni (MERN, PERN) e dei framework fullstack come Next.js o Astro. Usa il linguaggio JavaScript, onnipresente nel web. Come scelta di libreria di rendering, utilizzeremo **[EJS](https://ejs.co/)**, semplice e simile a HTML puro.
+- **[Express (Node.js)](https://expressjs.com/)**: E il pilastro degli stack moderni (MERN, PERN) e dei framework fullstack come Next.js o Astro. Usa il linguaggio JavaScript, onnipresente nel web. Come scelta di libreria di rendering, utilizzeremo **[EJS](https://ejs.co/)**, semplice e simile a HTML puro.
 
-- **[Flask (Python)](https://flask.palletsprojects.com/en/stable/)**: È leggero, essenziale e perfetto per microservizi, prototipazione e progetti legati ai dati. Usa Python, noto per la sua sintassi chiara e la vasta libreria di pacchetti per applicazioni stand-alone. Come libreria di rendering, useremo **[Jinja2](https://pypi.org/project/Jinja2/)**, potente e flessibile.
+- **[Flask (Python)](https://flask.palletsprojects.com/en/stable/)**: E leggero, essenziale e perfetto per microservizi, prototipazione e progetti legati ai dati. Usa Python, noto per la sua sintassi chiara e la vasta libreria di pacchetti per applicazioni stand-alone. Come libreria di rendering, useremo **[Jinja2](https://pypi.org/project/Jinja2/)**, potente e flessibile.
 
 - **[SQLite3](https://www.sqlite.org/)**: E il database relazionale leggero e file-based. Non richiede un server in esecuzione, usa SQL standard e permette a entrambi i backend (Flask e Express) di leggere e scrivere sulla stessa base dati in modo sicuro.
 
@@ -14,8 +16,8 @@ Useremo il Server-Side Rendering (SSR) per generare l'HTML direttamente sul serv
 - **Python**: Flask + Jinja2 per il rendering.
 - **Node.js**: Express + EJS per il rendering.
 - **Database**: SQLite3 (file locale condiviso che memorizza la tabella `users`).
-- **Autenticazione**: Sessioni server-side e Hashing delle password con `bcrypt`.
-  
+- **Autenticazione**: Sessioni server-side e hashing delle password con `bcrypt`.
+
 ## Roadmap delle route
 - **GET /**: home pubblica con stato di login.
 - **GET /login**: form di accesso.
@@ -29,7 +31,7 @@ Useremo il Server-Side Rendering (SSR) per generare l'HTML direttamente sul serv
 ## Diagramma di flusso (SSR)
 1. L'utente invia `POST /register` o `POST /login`.
 2. Il backend valida i dati e interroga SQLite3.
-3. Il motore di template genera l’HTML con i dati necessari (username, errori, ecc.).
+3. Il motore di template genera l'HTML con i dati necessari (username, errori, ecc.).
 4. Il browser riceve la pagina gia pronta.
 
 ## Database: SQLite3
@@ -52,7 +54,7 @@ Copri gli ambienti con `database/.env` (uno solo, condiviso). Il file esistente 
 
 ```
 SQLITE_PATH="DATABASE.sqlite3"
-SECRET_KEY="una_stringa_molto_lunga_e_casuale"
+SECRET_KEY="session_key_change_me123"
 ```
 
 Le app usano `python-dotenv` e `dotenv` (Node) per caricare queste variabili. Qui `.env` resta nel repo a scopo didattico.
@@ -74,7 +76,8 @@ Le app usano `python-dotenv` e `dotenv` (Node) per caricare queste variabili. Qu
 |   |-- package.json
 |   `-- views/ (contiene home.ejs, login.ejs, register.ejs, 404.ejs)
 |-- .gitignore (deve includere node_modules e il file .sqlite3)
-`-- README.it.md
+|-- README.it.md
+`-- README.md
 ```
 Entrambi i progetti sono indipendenti e si collegano allo stesso database SQLite3.
 
